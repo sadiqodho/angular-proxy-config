@@ -1,0 +1,32 @@
+<div style="margin:auto;max-width:300px">
+    <p>Details:</p>
+    <form class="example" [formGroup]="myform" (ngSubmit)="onSubmit()">
+    <input type="hidden" formControlName="id" name="id">
+    <input type="text" formControlName="name" placeholder="Name" name="name">
+    <input type="number" formControlName="age" placeholder="Age" name="age">
+    <input type="text" maxlength="1" minlength="1" formControlName="gender" placeholder="Gender" name="gender">
+    <input type="text" formControlName="address" placeholder="Address.." name="address">
+    <button type="submit"><i class="fa fa-search"></i>Save</button>
+    </form>
+</div>
+
+<table>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Gender</th>
+      <th>Address</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+    <tr *ngFor="let item of data">
+      <td>{{item.id}}</td>
+      <td>{{item.name}}</td>
+      <td>{{item.age}}</td>
+      <td>{{item.gender}}</td>
+      <td>{{item.address}}</td>
+      <td><button (click)="editData(item)">Edit</button></td>
+      <td><button (click)="deleteUserById(item.id)">Delete</button></td>
+    </tr>
+</table>
